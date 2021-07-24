@@ -1,4 +1,21 @@
-PageLayoutExample:
+WidgetsExample:
+
+<WidgetsExample>:
+    cols: 3
+    Button:
+        text: "click"
+
+        # self is present button not widgets so used root
+        on_press: root.click_button()
+
+    Label:
+        text: root.label_text
+        font_name: "fonts/Lcd.ttf"
+        font_size: "80dp"
+
+        # R , G, B, visible
+        color: 1, .5, .5, .5
+
 
 <PageLayoutExample@PageLayout>:
     MainWidget:

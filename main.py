@@ -3,6 +3,17 @@ from kivy.uix.widget import Widget
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.gridlayout import GridLayout
+from kivy.properties import StringProperty
+
+
+class WidgetsExample(GridLayout):
+
+    count_= 0
+    label_text= StringProperty(str(count_))
+    def click_button(self):
+        self.count_ += 1
+        self.label_text= str(self.count_)
+        # print('you pressed')
 
 class GridLayoutExample(GridLayout):
     def __init__(self, **kwargs):
