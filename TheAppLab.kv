@@ -1,12 +1,33 @@
 WidgetsExample:
 
+<ImageExample@GridLayout>:
+    cols: 3
+    Image:
+        source: "images/cake.jpg"
+    Image:
+        source: "images/cake.jpg"
+        allow_stretch: True
+    Image:
+        source: "images/cake.jpg"
+        allow_stretch: True
+        keep_ratio: False
+
 <WidgetsExample>:
     cols: 3
+
+    ToggleButton:
+        text: "OFF"
+        on_state: root.on_toggle_button_state(self)
+        size_hint: None, 1
+        width: "120dp"
+
+
     Button:
-        text: "click"
+        text: "Click"
 
         # self is present button not widgets so used root
         on_press: root.click_button()
+        disabled: not root.widget_state
 
     Label:
         text: root.label_text
@@ -14,7 +35,46 @@ WidgetsExample:
         font_size: "80dp"
 
         # R , G, B, visible
-        color: 1, .5, .5, .5
+        color: 1, 1, .5, 1
+
+    Switch:
+        id: slider_switch
+        # on_active: root.on_switch_active(self)
+        size_hint: None, 1
+        width: "100dp"
+
+    Slider:
+        id: the_slider
+        max: 100
+        min: 0
+        value: 50
+        # on_value: root.on_slider_value(self)
+        disabled: not slider_switch.active
+        orientation: "vertical"
+
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: str(round(the_slider.value,2))
+            font_name: "fonts/Lcd.ttf"
+            font_size: "80dp"
+
+            # R , G, B, visible
+            color: 1, 1, .5, 1
+
+        ProgressBar:
+            max: 100
+            value: the_slider.value
+
+    TextInput:
+        id: the_input
+        size_hint: None, 1
+        width: "100dp"
+        multiline: False
+        on_text_validate: root.on_text_validate(self)
+
+    Label:
+        text: "Your name is : \n" + root.text_input_string
 
 
 <PageLayoutExample@PageLayout>:
