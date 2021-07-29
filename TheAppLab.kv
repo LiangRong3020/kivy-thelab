@@ -1,4 +1,4 @@
-canvasExample5:
+canvasExample7:
 
 #:set s dp(150)
 
@@ -50,6 +50,46 @@ canvasExample5:
         pos: 100, 400
         text: "A"
         on_press: root.on_press_a_click()
+
+<canvasExample6>:
+
+    BoxLayout
+        size: root.size
+        Widget:
+            canvas:
+                Color:
+                    rgb: 0, 1, 0
+                Rectangle:
+                    size: self.size
+
+        RelativeLayout:
+            canvas:
+                Color:
+                    rgb: 0, 0, 1
+                Rectangle:
+                    size: self.size
+
+<canvasExample7>:
+    RelativeLayout:
+        canvas:
+            Color:
+                rgb: 1, 0, 0
+            Rectangle:
+                size: self.size
+
+    RelativeLayout:
+        canvas:
+            Color:
+                rgb: 1, 1, 1
+            Rectangle:
+                size: self.size
+
+    RelativeLayout:
+        canvas:
+            Color:
+                rgb: 0, 0, 1
+            Rectangle:
+                size: self.size
 
 
 <ImageExample@GridLayout>:
